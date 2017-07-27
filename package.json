@@ -49,6 +49,11 @@
     "xo": "^0.18.2"
   },
   "xo": {
-    "space": true
+    "space": true,
+    "rules": {
+      "new-cap": 0,
+      "camelcase": 0,
+      "guard-for-in": 0
+    }
   }
 }
