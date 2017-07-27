@@ -1,5 +1,6 @@
-var Sonos = require('../').Sonos
-var sonos = new Sonos(process.env.SONOS_HOST || '192.168.2.11')
+const {Sonos} = require('../');
+
+const sonos = new Sonos(process.env.SONOS_HOST || '192.168.2.11');
 
 // This example demonstrates playing various spotify uri types.
 // The Spotify uris can be obtained by using the Spotify
@@ -18,24 +19,24 @@ var sonos = new Sonos(process.env.SONOS_HOST || '192.168.2.11')
 // This assumes you have the Spotify music service connected to
 // your Sonos system.
 
-var spotifyUri = 'spotify:track:1AhDOtG9vPSOmsWgNW0BEY'
+const spotifyUri = 'spotify:track:1AhDOtG9vPSOmsWgNW0BEY';
 
-this.sonos.play(spotifyUri, (err, result) => {
+this.sonos.play(spotifyUri, err => {
   if (err) {
-    return console.log(err)
+    return console.log(err);
   }
-})
+});
 
 // This example plays curated artist radio on Spotify. The
 // artistId is found in the same way as described above. The
 // artistName is just a string to be used in the Sonos Queue
 // as the name for the radio station playlist.
 
-var artistId = '1dfeR4HaWDbWqFHLkxsg1d'
-var artistName = 'Queen'
+const artistId = '1dfeR4HaWDbWqFHLkxsg1d';
+const artistName = 'Queen';
 
-sonos.playSpotifyRadio(artistId, artistName, (err, result) => {
+sonos.playSpotifyRadio(artistId, artistName, err => {
   if (err) {
-    return console.log(err)
+    return console.log(err);
   }
-})
+});

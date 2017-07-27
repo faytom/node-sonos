@@ -1,7 +1,7 @@
-var Sonos = require('../').Sonos
+const {Sonos} = require('../');
 
-var sonos = new Sonos(process.env.SONOS_HOST || '192.168.2.19', process.env.SONOS_PORT || 1400)
+const sonos = new Sonos(process.env.SONOS_HOST || '192.168.2.19', process.env.SONOS_PORT || 1400);
 
-sonos.getCurrentState(function (err, track) {
-  console.log(err, track)
-})
+sonos.getCurrentState((err, track) => {
+  console.log(err, track);
+});

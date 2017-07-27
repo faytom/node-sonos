@@ -1,14 +1,14 @@
-var Sonos = require('../')
+const Sonos = require('../');
 
-console.log('Searching for Sonos devices...')
-var search = Sonos.search()
+console.log('Searching for Sonos devices...');
+const search = Sonos.search();
 
-search.on('DeviceAvailable', function (device, model) {
-  console.log(device, model)
-})
+search.on('DeviceAvailable', (device, model) => {
+  console.log(device, model);
+});
 
 // Optionally stop searching and destroy after some time
-setTimeout(function () {
-  console.log('Stop searching for Sonos devices')
-  search.destroy()
-}, 30000)
+setTimeout(() => {
+  console.log('Stop searching for Sonos devices');
+  search.destroy();
+}, 30000);

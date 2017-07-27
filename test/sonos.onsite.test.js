@@ -1,55 +1,55 @@
 /* eslint-env mocha */
-const assert = require('assert')
-const sonos = require('../')
+const assert = require('assert');
+const sonos = require('../');
 
-describe('On site Sonos', function () {
-  var device = null
-  before(function (done) {
-    sonos.search(function (dev) {
-      device = dev
-      done()
-    })
-  })
+describe('On site Sonos', () => {
+  let device = null;
+  before(done => {
+    sonos.search(dev => {
+      device = dev;
+      done();
+    });
+  });
 
-  describe('Search Music Library', function () {
-    it('returns search results from the Sonos library', function (done) {
+  describe('Search Music Library', () => {
+    it('returns search results from the Sonos library', done => {
       // TODO: Verify data response
-      device.searchMusicLibrary('tracks', 'Newton', {}, done)
-    })
-  })
+      device.searchMusicLibrary('tracks', 'Newton', {}, done);
+    });
+  });
 
-  describe('Favorites Radio', function () {
-    var device = null
+  describe('Favorites Radio', () => {
+    let device = null;
 
-    before(function (done) {
-      sonos.search(function (dev) {
-        device = dev
-        done()
-      })
-    })
+    before(done => {
+      sonos.search(dev => {
+        device = dev;
+        done();
+      });
+    });
 
-    it('should return favorite radio stations', function (done) {
-      device.getFavoritesRadioStations({}, function (err, result) {
-        assert(err !== false)
-        assert(result)
-        done()
-      })
-    })
+    it('should return favorite radio stations', done => {
+      device.getFavoritesRadioStations({}, (err, result) => {
+        assert(err !== false);
+        assert(result);
+        done();
+      });
+    });
 
-    it('should return favorite radio shows', function (done) {
-      device.getFavoritesRadioShows({}, function (err, result) {
-        assert(err !== false)
-        assert(result)
-        done()
-      })
-    })
-  })
+    it('should return favorite radio shows', done => {
+      device.getFavoritesRadioShows({}, (err, result) => {
+        assert(err !== false);
+        assert(result);
+        done();
+      });
+    });
+  });
 
-  it('should return Sonos playlists', function (done) {
-    device.searchMusicLibrary('sonos_playlists', null, {}, function (err, result) {
-      assert(err !== false)
-      assert(result)
-      done()
-    })
-  })
-})
+  it('should return Sonos playlists', done => {
+    device.searchMusicLibrary('sonos_playlists', null, {}, (err, result) => {
+      assert(err !== false);
+      assert(result);
+      done();
+    });
+  });
+});

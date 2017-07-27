@@ -1,29 +1,29 @@
-var http = require('http')
-var Sonos = require('../').Sonos
+const http = require('http');
+const {Sonos} = require('../');
 
-var sonos = new Sonos(process.env.SONOS_HOST || '192.168.2.11')
+const sonos = new Sonos(process.env.SONOS_HOST || '192.168.2.11');
 
-var server = http.createServer(function (req, res) {
-  sonos.currentTrack(function (err, track) {
+const server = http.createServer((req, res) => {
+  sonos.currentTrack((err, track) => {
     if (err) {
-      throw err
+      throw err;
     }
 
     res.writeHead(200, {
       'Content-Type': 'text/html'
-    })
+    });
 
-    var rows = []
+    const rows = [];
 
-    for (var key in track) {
+    for (const key in track) {
       if (key === 'albumArtURI') {
-        rows.push('<tr><th>' + key + '</th><td>' + track[key] + '</td></tr>')
+        rows.push('<tr><th>' + key + '</th><td>' + track[key] + '</td></tr>');
       }
     }
 
-    res.write('<table>' + rows.join('') + '</table>')
-    res.end()
-  })
-})
+    res.write('<table>' + rows.join('') + '</table>');
+    res.end();
+  });
+});
 
-server.listen(process.env.PORT || 3000)
+server.listen(process.env.PORT || 3000);

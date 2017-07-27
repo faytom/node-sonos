@@ -1,10 +1,12 @@
-var sonos = require('../')
-var debug = require('debug')('search')
+const debug = require('debug')('search');
+const sonos = require('../');
 
-sonos.search(function (sonos) {
-  debug("Found Sonos '%s'", sonos.host)
-  sonos.currentTrack(function (err, track) {
-    if (err) throw err
-    console.log(track || 'Nothing Playing')
-  })
-})
+sonos.search(sonos => {
+  debug('Found Sonos \'%s\'', sonos.host);
+  sonos.currentTrack((err, track) => {
+    if (err) {
+      throw err;
+    }
+    console.log(track || 'Nothing Playing');
+  });
+});

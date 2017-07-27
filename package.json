@@ -4,8 +4,8 @@
   "description": "Node.js Sonos Interface",
   "main": "index.js",
   "scripts": {
-    "lint": "standard",
-    "test": "mocha test/sonos.test.js",
+    "lint": "xo",
+    "test": "xo && mocha test/sonos.test.js",
     "test-onsite": "mocha test/",
     "env-run": "npm run $CMD"
   },
@@ -46,6 +46,9 @@
   },
   "devDependencies": {
     "mocha": "^3.2.0",
-    "standard": "*"
+    "xo": "^0.18.2"
+  },
+  "xo": {
+    "space": true
   }
 }
