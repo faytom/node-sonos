@@ -4,9 +4,9 @@
 [![build](http://img.shields.io/travis/bencevans/node-sonos/master.svg?style=flat-square)](https://travis-ci.org/bencevans/node-sonos)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/feross/standard)
 
-Node.js Interface to [Sonos](http://sonos.com)
+Node.js Interface to [Sonos](http://sonos.com), this is an Ionic version of node-sonos.
 
-Please open [pull-requests](https://github.com/bencevans/node-sonos) and ask questions [@bencevans](https://twitter.com/bencevans).
+Because of the lacking of `dgram` dependency in ionic platform, it was replaced with `chrome-dgram`.
 
 ## API
 
